@@ -6,9 +6,12 @@ import dotenv from 'dotenv'
 import morgan from 'morgan'
 import helmet from 'helmet'
 import clientsRoutes from "./routes/clients.js"
-
+import path from 'path'
+import { fileURLToPath } from 'url'
 
 /* CONFIGURATION */
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 dotenv.config()
 const app = express()
 app.use(express.json())
@@ -25,6 +28,7 @@ const corsOptions = {
     allowedHeaders: ['Content-Type', 'Authorization'],
 };
 app.use(cors(corsOptions))
+app.use("/assets", express.static(path.join(__dirname, 'public/assets')))
 
 /* ROUTES */
 app.use("/clients",clientsRoutes)
