@@ -9,6 +9,6 @@ router.get("/getquery", getQuery)
 
 router.get("/getparams/:id", getParams)
 
-router.get("/posttest", postTest)
+router.post("/posttest", postTest)
 
 export default router
