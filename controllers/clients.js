@@ -35,8 +35,8 @@ export const getQuery = async (req, res) => {
 export const postTest = async (req,res) => {
     try{
         const body = req.body
-        console.log(body)
-        res.status(200).json({message: 'test'})
+       
+        res.status(200).json(body)
     }catch(error){
         res.status(404).json({message: error.message})
     }
