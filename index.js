@@ -48,7 +48,9 @@ app.post('/posts',upload.single('picture'), createPost)
 
 /* ROUTES */
 app.use("/clients",clientsRoutes)
-
+app.get('',(req,res) => {
+    res.status(200).json({message: 'test'})
+})
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
